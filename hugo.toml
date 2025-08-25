@@ -4,6 +4,10 @@ languageCode = 'id-ID'
 
 theme = 'hugo-theme-console'
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [params]
   # Cutting off the page title to two chars for mobile (console-demo -> co)
   titleCutting = true
