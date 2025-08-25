@@ -1,0 +1,17 @@
+baseURL = 'https://example.org/'
+title = 'rhxxx'
+languageCode = 'id-ID'
+
+theme = 'hugo-theme-console'
+
+[params]
+  # Cutting off the page title to two chars for mobile (console-demo -> co)
+  titleCutting = true
+
+  # Set the animation style -- https://animate.style/
+  # To disable animations, please remove or comment animationStyle parameter
+  animateStyle = "animated zoomIn slow" 
+
+  [[params.navlinks]]
+  name = "about/"
+  url = "about/"
