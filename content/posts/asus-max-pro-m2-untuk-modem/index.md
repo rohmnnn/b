@@ -31,7 +31,7 @@ Bypass charging yang saya lakukan ada dua pertama menggunakan software Baterai A
 
 Lalu yang kedua menggunakan aliran listrik langsung tanpa baterai dengan memanfaatkan modul stepdown dan juga modul BMS dari baterai bekas sebagai soket masuk tanpa harus melakukan jumper kabel. diHP ini saya set voltase di 4V-4,2V dengan input REAL 12V 2A (ini harus pakai adaptor ori, jika tidak maka HP perlu bantuan charging supaya bisa hidup).
 
-![alt text](bypass-charging.jpg)
+![bypass-charging](https://github.com/rohmnnn/b/blob/main/content/posts/asus-max-pro-m2-untuk-modem/bypass-charging.jpeg?raw=true)
 
 ### Internet
 
