@@ -46,10 +46,28 @@ jobs:
           mkdir -p "${HOME}/.local"
       - name: Install Dart Sass
         run: |
-          curl -sLJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
-          tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
-          rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          set -euo pipefail
+          : "${DART_SASS_VERSION:?DART_SASS_VERSION is not set}"
+          ARCH="$(uname -m)"
+          case "$ARCH" in
+            x86_64|amd64) DART_SASS_ARCH=linux-x64 ;;
+            aarch64|arm64) DART_SASS_ARCH=linux-arm64 ;;
+            *) echo "Unsupported architecture: $ARCH" >&2; exit 1 ;;
+          esac
+          ASSET="dart-sass-${DART_SASS_VERSION}-${DART_SASS_ARCH}.tar.gz"
+          URL="https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/${ASSET}"
+          echo "Downloading Dart Sass binary: $URL"
+          curl -fSL "$URL" -o "$ASSET"
+          if ! gzip -t "$ASSET" 2>/dev/null; then
+            echo "Downloaded file is not a valid gzip archive. First lines:" >&2
+            head -20 "$ASSET" >&2 || true
+            exit 1
+          fi
+          mkdir -p "${HOME}/.local"
+          tar -C "${HOME}/.local" -xzf "$ASSET"
+          rm "$ASSET"
           echo "${HOME}/.local/dart-sass" >> "${GITHUB_PATH}"
+          echo "Dart Sass installed: $("${HOME}/.local/dart-sass/sass" --version)"
       - name: Install Hugo
         run: |
           curl -sLJO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
