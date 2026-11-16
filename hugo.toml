@@ -1,25 +1,34 @@
-baseURL = 'https://b.rohman.dev/'
-title = 'rhxxx'
-languageCode = 'id-ID'
-
-theme = 'hugo-theme-console'
-
-[caches]
-  [caches.images]
-    dir = ':cacheDir/images'
+baseURL = "https://b.rohman.dev/"
+title = "rhxxx"
+theme = "hugo-mini"
+defaultContentLanguage = "id"
+defaultContentLanguageInSubdirectory = false
+languageCode = "id-ID"
+enableRobotsTXT = true
+enableEmoji = true
 
 [params]
-  # Cutting off the page title to two chars for mobile (console-demo -> co)
-  titleCutting = false
+  authorName = "rhxxx"
+  description = "Catatan, tutorial, dan pengalaman seputar teknologi."
+  mainSections = ["posts"]
 
-  # Set the animation style -- https://animate.style/
-  # To disable animations, please remove or comment animationStyle parameter
-  animateStyle = "animated zoomIn slow" 
+[languages.id]
+  languageCode = "id-ID"
+  languageName = "Bahasa Indonesia"
+  weight = 1
 
-  [[params.navlinks]]
-  name = "about/"
-  url = "about/"
-  
-  [[params.navlinks]]
-  name = "posts/"
-  url = "posts/"
+  [[languages.id.menu.main]]
+    name = "Tulisan"
+    url = "/posts/"
+    weight = 1
+
+  [[languages.id.menu.main]]
+    name = "Tentang"
+    url = "/about/"
+    weight = 2
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false

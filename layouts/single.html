@@ -1,0 +1,50 @@
+{{ define "bodyClass" }}reading-layout{{ end }}
+{{ define "main" }}
+{{- $isPost := in (site.Params.mainSections | default (slice "blog")) .Type -}}
+{{- $neighbors := dict -}}
+{{- if $isPost -}}{{- $neighbors = partial "article-neighbors.html" . -}}{{- end -}}
+
+{{- $title := partial "typography/title.html" . -}}
+{{- if and (.Param "hangingQuotes") (not (eq (.Param "typography") false)) -}}
+  {{- $title = partial "typography/hanging-start.html" $title -}}
+{{- end -}}
+<h1{{ if .Param "headingScroll" }} id="page-title"{{ end }}>{{ $title }}</h1>
+
+<article class="beauty-reading{{ if and $isPost (.Param "articleH2UseTitleFont") (not .Params.useDefaultFonts) }} article-title-headings{{ end }}{{ if .Param "proseNumerals" }} beauty-prose-numerals{{ end }}{{ if .Params.dropCap }} beauty-dropcap{{ end }}{{ if .Params.wideCode }} article-wide-code{{ end }}" lang="{{ .Language.Lang }}"{{ if .Param "sideNotes" }} data-side-notes{{ end }}{{ if and $isPost (.Param "articleLinksNewTab") }} data-article-links-new-tab{{ end }}{{ if $neighbors.enabled }} data-article-navigation{{ end }}{{ with $neighbors.previous }} data-article-previous="{{ . }}"{{ end }}{{ with $neighbors.next }} data-article-next="{{ . }}"{{ end }}>
+  {{ partial "typography/content.html" . }}
+</article>
+
+{{- if $isPost }}
+<div class="post-footer">
+  <div class="post-actions">
+    <div class="post-meta-inline">
+      <div class="post-meta-left">
+        {{- partial "telegram-views.html" . -}}
+        {{- $dateFormat := cond (eq .Params.date_precision "month") "2006-01" "2006-01-02" -}}
+        <time datetime="{{ .Date.Format $dateFormat }}" class="post-date">{{ partial "format-date.html" . }}</time>
+      </div>
+      {{- partial "telegram-reactions.html" . -}}
+    </div>
+
+    {{ if site.Params.socialSharing | default true }}
+    <div class="likely likely-big" data-counters="no" data-url="{{ .Permalink }}" data-title="{{ .Title }}">
+      {{- range slice
+        (dict "key" "telegram" "name" "Telegram")
+        (dict "key" "twitter" "name" "Twitter")
+        (dict "key" "facebook" "name" "Facebook")
+        (dict "key" "vkontakte" "name" "VK")
+        (dict "key" "linkedin" "name" "LinkedIn")
+      }}
+      <div class="{{ .key }}" aria-label="{{ i18n "share_on" (dict "Name" .name) }}"></div>
+      {{- end }}
+    </div>
+    {{ end }}
+  </div>
+
+  {{ if and .Params.telegram_post site.Params.telegramChannel }}
+  <div id="tg-comments" data-tg-discussion="{{ site.Params.telegramChannel }}/{{ .Params.telegram_post }}" data-tg-limit="20"></div>
+  {{ end }}
+</div>
+{{ partial "giscus.html" . }}
+{{- end }}
+{{ end }}

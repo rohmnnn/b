@@ -1,0 +1,168 @@
+[articles]
+other = "Tulisan"
+
+[misc]
+other = "Lain-lain"
+
+[popular]
+other = "Populer"
+
+[latest_posts]
+other = "Tulisan terbaru"
+
+[featured_posts]
+other = "Tulisan pilihan"
+
+[home]
+other = "Beranda"
+
+[go_up]
+other = "Ke atas"
+
+[theme_light]
+other = "Ganti ke tema terang"
+
+[theme_dark]
+other = "Ganti ke tema gelap"
+
+[toggle_theme]
+other = "Ganti tema"
+
+[month_january]
+other = "Januari"
+
+[month_february]
+other = "Februari"
+
+[month_march]
+other = "Maret"
+
+[month_april]
+other = "April"
+
+[month_may]
+other = "Mei"
+
+[month_june]
+other = "Juni"
+
+[month_july]
+other = "Juli"
+
+[month_august]
+other = "Agustus"
+
+[month_september]
+other = "September"
+
+[month_october]
+other = "Oktober"
+
+[month_november]
+other = "November"
+
+[month_december]
+other = "Desember"
+
+[cat_marketing]
+other = "Pemasaran"
+
+[cat_strategy]
+other = "Strategi dan Kerangka Kerja"
+
+[cat_metrics]
+other = "Metrik dan Analitik"
+
+[cat_leadership]
+other = "Tim dan Kepemimpinan"
+
+[cat_self-development]
+other = "Pengembangan Diri"
+
+[cat_productivity]
+other = "Produktivitas"
+
+[cat_collections]
+other = "Kumpulan"
+
+[cat_getting-started]
+other = "Memulai"
+
+[new_badge]
+other = "Baru"
+
+[reading_book]
+other = "Buku"
+
+[reading_read]
+other = "Dibaca"
+
+[reading_list_label]
+other = "Daftar bacaan"
+
+[not_found]
+other = "Halaman tidak ditemukan. Mungkin sudah dipindahkan atau dihapus."
+
+[not_found_yoda]
+other = "Halaman yang kamu cari tidak ada di sini."
+
+[back_home]
+other = "Kembali ke beranda"
+
+[switch_language]
+other = "Ganti bahasa"
+
+[about_author]
+other = "Tentang penulis"
+
+[contacts]
+other = "Kontak"
+
+[sections]
+other = "Bagian"
+
+[website]
+other = "Situs web"
+
+[telegram_channel]
+other = "Kanal Telegram"
+
+[copy]
+other = "Salin"
+
+[copied]
+other = "Tersalin"
+
+[toggle_menu]
+other = "Buka atau tutup menu"
+
+[search]
+other = "Cari"
+
+[search_coming_soon]
+other = "segera hadir"
+
+[copy_section_link]
+other = "Salin tautan bagian ini"
+
+[scroll_heading]
+other = "Gulir judul ke atas"
+
+[table_scroll_label]
+other = "Tabel; gulir horizontal jika diperlukan"
+
+[spin_project_logo]
+other = "Putar logo {{ .Name }}"
+
+[share_on]
+other = "Bagikan di {{ .Name }}"
+
+[telegram_reactions]
+other = "Reaksi di Telegram"
+
+[wavy_arrow_to]
+other = "ke"
+
+[github_stars]
+one = "{{ .Count }} bintang di GitHub"
+other = "{{ .Count }} bintang di GitHub"
