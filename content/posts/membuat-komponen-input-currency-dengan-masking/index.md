@@ -1,5 +1,5 @@
 +++
-title = "Membuat Komponen Input Currency (Uang) dengan Mask"
+title = "Membuat Komponen Input Currency (Uang) dengan Masking"
 date = "2026-11-17"
 +++
 
